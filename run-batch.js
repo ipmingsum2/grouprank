@@ -4,15 +4,12 @@ import noblox from "noblox.js"
 const DEFAULT_GROUP_ID = 35138034
 
 function parseRole(value) {
-  // Accept number or string from JSON
-  // If numeric-like string, convert to number; else leave as string for role name
   if (typeof value === "number") return value
   if (typeof value === "string") {
     const n = Number(value)
     if (!Number.isNaN(n) && value.trim() !== "") return n
-    return value // role name as string
+    return value
   }
-  // If it’s an object (Role), we’ll just pass it through (advanced usage)
   return value
 }
 
@@ -83,7 +80,6 @@ async function main() {
     try {
       // setRank(group, target, rank) 🔐
       const result = await noblox.setRank(gid, uid, role)
-      // result is a Role object representing the new role
       console.log(`OK user ${uid} in group ${gid}: set to role "${result?.name}" [rank ${result?.rank}] rolesetId ${result?.id}`)
       success++
     } catch (err) {
