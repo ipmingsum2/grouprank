@@ -1,0 +1,43 @@
+name: SetRank (on-demand)
+# This project uses noblox.js | https://noblox.js.org/index.html
+on:
+  workflow_dispatch:
+    inputs:
+      user_id:
+        description: "Target Roblox userId"
+        required: true
+        type: string
+      role:
+        description: "Role (name string, rank 0–255, or rolesetId >255)"
+        required: true
+        type: string
+      group_id:
+        description: "Group ID (optional; defaults to 35138034)"
+        required: false
+        type: string
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      INPUT_USER_ID: ${{ github.event.inputs.user_id }}
+      INPUT_ROLE: ${{ github.event.inputs.role }}
+      INPUT_GROUP_ID: ${{ github.event.inputs.group_id }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci || npm i
+
+      - name: Run setRank
+        env:
+          ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
+        run: npm run setrank
