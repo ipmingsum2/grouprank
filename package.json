@@ -1,0 +1,13 @@
+{
+  "name": "rbx-group-rank-batch",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Batch Roblox group ranking using noblox.js via GitHub Actions (no paid hosting).",
+  "scripts": {
+    "run:batch": "node run-batch.js"
+  },
+  "dependencies": {
+    "noblox.js": "^6.0.0"
+  }
+}
