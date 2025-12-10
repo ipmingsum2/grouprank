@@ -1,11 +1,11 @@
 {
-  "name": "rbx-group-rank-batch",
+  "name": "rbx-group-setrank-on-demand",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Batch Roblox group ranking using noblox.js.",
+  "description": "On-demand Roblox group setRank using noblox.js via GitHub Actions inputs (no external hosting).",
   "scripts": {
-    "run:batch": "node run-batch.js"
+    "setrank": "node setrank.js"
   },
   "dependencies": {
     "noblox.js": "^6.0.0"
