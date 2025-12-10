@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Batch Roblox group ranking using noblox.js via GitHub Actions (no paid hosting).",
+  "description": "Batch Roblox group ranking using noblox.js.",
   "scripts": {
     "run:batch": "node run-batch.js"
   },
